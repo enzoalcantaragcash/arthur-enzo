@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //initListings()
         initMetadata("1")
 
         binding.button.setOnClickListener{
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //this returns yung listings by cmc rank
-    private fun init() {
+    private fun initListings() {
 
         //dito sa call function mo ilalagay kung pano ranking and ilan gusto mo idisplay.
         val call : Call<CoinMarketCapMapData> = CoinMarketCapApiClient.getCryptoData.getMap("1ff15f96-407d-4623-99c2-f067430d757f", "cmc_rank", 10)

@@ -1,5 +1,6 @@
 package ph.gcash.cadet.lorenzo.alcantara.stonks
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener{
             Toast.makeText(applicationContext, "Works", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(applicationContext, StocksActivity::class.java))
         }
     }
 

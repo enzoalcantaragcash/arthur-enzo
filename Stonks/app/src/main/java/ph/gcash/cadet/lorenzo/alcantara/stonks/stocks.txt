@@ -1,0 +1,25 @@
+AAPL	Apple Inc.
+MSFT	Microsoft Corporation
+TSM	Taiwan Semiconductor Manufacturing Company Limited
+NVDA	NVIDIA Corporation
+AVGO	Broadcom Inc.
+ORCL	Oracle Corporation
+ASML	ASML Holding N.V.
+ADBE	Adobe Inc.
+ACN	Accenture plc
+CSCO	Cisco Systems, Inc.
+CRM	Salesforce, Inc.
+INTC	Intel Corporation
+QCOM	QUALCOMM Incorporated
+TXN	Texas Instruments Incorporated
+IBM	International Business Machines Corporation
+AMD	Advanced Micro Devices, Inc.
+INTU	Intuit Inc.
+SAP	SAP SE
+SONY	Sony Group Corporation
+NOW	ServiceNow, Inc.
+INFY	Infosys Limited
+AMAT	Applied Materials, Inc.
+ADI	Analog Devices, Inc.
+MU	Micron Technology, Inc.
+FISV Fiserv Inc

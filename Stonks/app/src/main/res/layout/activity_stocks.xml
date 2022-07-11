@@ -4,6 +4,157 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StocksActivity">
+    tools:context=".StockProfileActivity">
+
+    <ImageView
+        android:id="@+id/companyIcon"
+        android:layout_width="156dp"
+        android:layout_height="142dp"
+        android:layout_marginTop="36dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+
+    <TextView
+        android:id="@+id/companyAddress"
+        android:layout_width="171dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:text="Address here"
+        app:layout_constraintStart_toEndOf="@+id/companyIcon"
+        app:layout_constraintTop_toBottomOf="@+id/companyName" />
+
+    <TextView
+        android:id="@+id/companyName"
+        android:layout_width="170dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
+        android:text="Company Name Here"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/companyIcon"
+        app:layout_constraintTop_toBottomOf="@+id/companyTicker" />
+
+    <TextView
+        android:id="@+id/companyTicker"
+        android:layout_width="180dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="36dp"
+        android:text="Ticker Here"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/companyIcon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="359dp"
+        android:layout_height="242dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/companyIcon" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="409dp"
+        android:layout_height="276dp"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineChart">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/CompanySIC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="STANDARD INDUSTRY CLASSIFICATION"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/companySICEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:text="SIC Here" />
+
+            <TextView
+                android:id="@+id/companyDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="COMPANY DESCRIPTION"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/companyDescriptionEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:text="insertcompanydesc here" />
+
+            <TextView
+                android:id="@+id/companyTotalEmploy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="TOTAL EMPLOYEES"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/companyTotalEmployEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:text="insertemployhere" />
+
+            <TextView
+                android:id="@+id/companyHomePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="HOMEPAGE"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/companyHomePageEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:text="inserthomepagehere" />
+
+            <TextView
+                android:id="@+id/companyMarketCap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="MARKET CAP"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/companyMarketCapEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:text="insertmarketcaphere" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

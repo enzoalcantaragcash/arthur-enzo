@@ -24,11 +24,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //initListings()
-        initMetadata("1")
+       // initMetadata("1")
 
         binding.button.setOnClickListener{
             Toast.makeText(applicationContext, "Works", Toast.LENGTH_SHORT).show()
-            startActivity(Intent(applicationContext, StocksActivity::class.java))
+            startActivity(Intent(applicationContext, StockProfileActivity::class.java))
         }
     }
 

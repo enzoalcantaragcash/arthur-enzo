@@ -36,6 +36,13 @@ android {
 
 dependencies {
 
+    //chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    //svg converter
+    implementation 'com.pixplicity.sharp:sharp:1.1.3@aar'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+
     //retrofit
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'

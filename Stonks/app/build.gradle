@@ -36,6 +36,9 @@ android {
 
 dependencies {
 
+    //jodatime
+    implementation("joda-time:joda-time:2.10.14")
+
     //chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
@@ -15,6 +16,8 @@ import com.github.mikephil.charting.formatter.ValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
+import org.joda.time.DateTime
+import org.joda.time.format.DateTimeFormat
 import ph.gcash.cadet.lorenzo.alcantara.stonks.api.StocksPolygonIOApiClient
 import ph.gcash.cadet.lorenzo.alcantara.stonks.databinding.ActivityStocksBinding
 import ph.gcash.cadet.lorenzo.alcantara.stonks.model.alphavantagecompanyprofile.PolygonCompanyAddressResponse
@@ -28,6 +31,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -44,13 +50,19 @@ class StockProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initCompanyProfile("AAPL")
-        initCompanyStockPrices("AAPL")
+        var endDate = DateTime.now()
+        Log.d("TEST JODA", endDate.toString("yyyy-MM-dd"))
+        var startDate = endDate.minusDays(250)
+        var dateFormat = "yyyy-MM-dd"
+        Log.d("TEST JODA", startDate.toString("yyyy-MM-dd"))
+
+        initCompanyStockPrices("AAPL", startDate.toString(dateFormat),endDate.toString(dateFormat))
 
     }
 
-    private fun initCompanyStockPrices(tickerCompany: String) {
-        val call : Call<StockValueInitialResponse> = StocksPolygonIOApiClient.getStocksData.getCompanyStockData(tickerCompany, "1", "day", "2021-07-10",
-             "2022-07-10", "asc", "365", "GdDF9nLZ6A7khhWEqUthw_HdpYyokmdC")
+    private fun initCompanyStockPrices(tickerCompany: String, startDate: String, endDate:String) {
+        val call : Call<StockValueInitialResponse> = StocksPolygonIOApiClient.getStocksData.getCompanyStockData(tickerCompany, "1", "day", startDate,
+             endDate, "desc", "5000", "GdDF9nLZ6A7khhWEqUthw_HdpYyokmdC")
 
         call.enqueue(object : Callback<StockValueInitialResponse> {
 
@@ -67,21 +79,42 @@ class StockProfileActivity : AppCompatActivity() {
                     Log.d("API CALL", "Success")
                     lineChart = findViewById(R.id.lineChart)
 
+                    var dateInMilis = DateTime.parse(endDate, DateTimeFormat.forPattern("yyyy-MM-dd")).millis
                     var lineCharDataSet : ArrayList<Entry> = ArrayList()
-                    var count = 0.0F
+                    var count = dateInMilis.toFloat()
+                    Log.d("API DEBUG", response.body()!!.results.size.toString())
                     for (data in response.body()!!.results) {
                         lineCharDataSet.add(Entry(count, data.closePrice.toFloat()))
-                        count++
+                        count -= 86400000
                     }
 
+                    lineCharDataSet.reverse()
                     var lineDataSet = LineDataSet(lineCharDataSet, "data set")
+                    lineDataSet.apply {
+                        mode = LineDataSet.Mode.CUBIC_BEZIER
+                        lineWidth = 2F
+                        isHighlightEnabled=true
+                        setDrawValues(false)
+                        setDrawHighlightIndicators(false)
+                        setDrawCircles(false)
+                        color = ContextCompat.getColor(applicationContext, R.color.moss_green)
+                    }
                     var iLineDataSet : ArrayList<ILineDataSet>  = ArrayList()
                     iLineDataSet.add(lineDataSet)
 
                     var lineData = LineData(iLineDataSet)
                     lineChart.data = lineData
                     lineChart.xAxis.valueFormatter = DateTimeChartFormat()
+                    lineChart.xAxis.setCenterAxisLabels(true)
+                    lineChart.axisRight.isEnabled = false
+                    lineChart.xAxis.granularity = 4F
+                    lineChart.legend.isEnabled = false
+                    lineChart.description.isEnabled= false
+                    lineChart.xAxis.setLabelCount(5)
+                    lineChart.xAxis.textSize = 6F
+
                     lineChart.invalidate()
+
 
 
                     //var lineDataSet : LineDataSet = LineDataSet()
@@ -146,7 +179,7 @@ class StockProfileActivity : AppCompatActivity() {
                 timeInMillis = dateInMillis
             }.time
 
-            return SimpleDateFormat("MM-dd-yyy", Locale.getDefault()).format(date)
+            return SimpleDateFormat("MM-dd-yyyy", Locale.getDefault()).format(date)
         }
     }
 }

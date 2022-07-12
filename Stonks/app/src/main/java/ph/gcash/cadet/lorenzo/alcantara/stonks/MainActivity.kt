@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import org.joda.time.DateTime
 import ph.gcash.cadet.lorenzo.alcantara.stonks.api.CoinMarketCapApiClient
 import ph.gcash.cadet.lorenzo.alcantara.stonks.databinding.ActivityMainBinding
 import ph.gcash.cadet.lorenzo.alcantara.stonks.model.coinmarketcapidmap.CoinMarketCapMapData
@@ -13,6 +14,9 @@ import ph.gcash.cadet.lorenzo.alcantara.stonks.model.coinmarketcapmetadata.Metad
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 

@@ -21,22 +21,25 @@
 
     <TextView
         android:id="@+id/companyAddress"
-        android:layout_width="171dp"
-        android:layout_height="32dp"
+        android:layout_width="180dp"
+        android:layout_height="47dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="4dp"
         android:text="Address here"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/companyIcon"
         app:layout_constraintTop_toBottomOf="@+id/companyName" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/companyName"
-        android:layout_width="170dp"
-        android:layout_height="29dp"
+        android:layout_width="180dp"
+        android:layout_height="45dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="4dp"
-        android:text="Company Name Here"
-        android:textSize="24sp"
+        android:textSize="17sp"
+        android:breakStrategy="balanced"
+        app:autoSizeTextType="uniform"
+        android:text="Company Here"
         app:layout_constraintStart_toEndOf="@+id/companyIcon"
         app:layout_constraintTop_toBottomOf="@+id/companyTicker" />
 

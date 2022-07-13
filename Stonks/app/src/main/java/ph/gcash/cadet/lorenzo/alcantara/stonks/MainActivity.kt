@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //initListings()
+        initListings()
        // initMetadata("1")
 
         binding.button.setOnClickListener{
@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
                 for (coin in coinlist) {
                     Log.d("API CALL", coin.toString())
                 }
+                response.data
             }
 
             override fun onFailure(call: Call<CoinMarketCapMapData>, t: Throwable) {
@@ -83,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     var response: MetadataDataInitialResponse = response!!.body()!!
                     var coinMetadata : MetadataDataResponse? = response.data?.get(id)
+
                     Log.d("API CALL", coinMetadata.toString())
                 }
                 else {

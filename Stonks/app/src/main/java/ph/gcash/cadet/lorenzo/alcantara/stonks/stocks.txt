@@ -23,3 +23,5 @@ AMAT	Applied Materials, Inc.
 ADI	Analog Devices, Inc.
 MU	Micron Technology, Inc.
 FISV Fiserv Inc
+GOOG
+META

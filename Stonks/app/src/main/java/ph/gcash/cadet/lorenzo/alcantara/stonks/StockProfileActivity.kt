@@ -45,18 +45,25 @@ class StockProfileActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        var extras = intent.extras
+        var ticker = extras!!.getString("ticker")
         super.onCreate(savedInstanceState)
         binding = ActivityStocksBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initCompanyProfile("AAPL")
+        if (ticker != null) {
+            initCompanyProfile(ticker)
+        }
         var endDate = DateTime.now()
         Log.d("TEST JODA", endDate.toString("yyyy-MM-dd"))
         var startDate = endDate.minusDays(250)
         var dateFormat = "yyyy-MM-dd"
         Log.d("TEST JODA", startDate.toString("yyyy-MM-dd"))
 
-        initCompanyStockPrices("AAPL", startDate.toString(dateFormat),endDate.toString(dateFormat))
+        if (ticker != null) {
+            initCompanyStockPrices(ticker, startDate.toString(dateFormat),endDate.toString(dateFormat))
+        }
 
     }
 
@@ -147,7 +154,7 @@ class StockProfileActivity : AppCompatActivity() {
                     Log.d("API CALL" , stock.toString())
                     Log.d("API CALL", address.toString())
                     Log.d("API CALL", branding.toString())
-
+                    Log.d("API CALL LOGO", branding.icon_url+"?apiKey=GdDF9nLZ6A7khhWEqUthw_HdpYyokmdC")
 //                    val picasso = Picasso.get()
 //                    picasso
 //                        .load(branding.icon_url + "?apiKey=GdDF9nLZ6A7khhWEqUthw_HdpYyokmdC")
@@ -159,11 +166,12 @@ class StockProfileActivity : AppCompatActivity() {
                     Utils().fetchSVG(applicationContext, branding.logo_url + "?apiKey=GdDF9nLZ6A7khhWEqUthw_HdpYyokmdC", iconView)
                     binding!!.companyName.text = stock.name
                     binding!!.companyTicker.text = stock.ticker
-                    binding!!.companyAddress.text = address.address + " " + address.city + " " + address.state + " " + address.postal_code  + " " + stock.phone_number
+                    binding!!.companyAddress.text = address.address + " " + address.city + " " + address.state + " " + address.postal_code  + "\n" + stock.phone_number
                     binding!!.companySICEdit.text = stock.sic_description
                     binding!!.companyDescriptionEdit.text = stock.description
                     binding!!.companyHomePageEdit.text = stock.homepage_url
                     binding!!.companyMarketCapEdit.text = stock.market_cap.toString()
+                    binding!!.companyTotalEmployEdit.text = stock.total_employees.toString()
                 }
             }
 

@@ -2,6 +2,7 @@ package ph.gcash.cadet.lorenzo.alcantara.stonks.model.alphavantagecompanyprofile
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.math.BigDecimal
 
 class PolygonCompanyProfileResponse {
 
@@ -29,13 +30,13 @@ class PolygonCompanyProfileResponse {
     var branding = PolygonCompanyBrandingResponse()
 
     @SerializedName("total_employees")
-    var total_employees = 0
+    var total_employees  = 0.toBigDecimal()
 
     @SerializedName("phone_number")
     var phone_number = ""
 
     @SerializedName("market_cap")
-    var market_cap : Long = 0
+    var market_cap = 0.toBigDecimal()
 
     @SerializedName("list_date")
     var list_date = ""

@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initListings()
-       // initMetadata("1")
+        //initListings()
+        initMetadata("1")
 
         binding.button.setOnClickListener{
             Toast.makeText(applicationContext, "Works", Toast.LENGTH_SHORT).show()

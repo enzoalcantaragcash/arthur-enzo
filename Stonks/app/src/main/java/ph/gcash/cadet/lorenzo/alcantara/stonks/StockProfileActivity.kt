@@ -122,9 +122,6 @@ class StockProfileActivity : AppCompatActivity() {
 
                     lineChart.invalidate()
 
-
-
-                    //var lineDataSet : LineDataSet = LineDataSet()
                 }
             }
         })
@@ -155,12 +152,6 @@ class StockProfileActivity : AppCompatActivity() {
                     Log.d("API CALL", address.toString())
                     Log.d("API CALL", branding.toString())
                     Log.d("API CALL LOGO", branding.icon_url+"?apiKey=GdDF9nLZ6A7khhWEqUthw_HdpYyokmdC")
-//                    val picasso = Picasso.get()
-//                    picasso
-//                        .load(branding.icon_url + "?apiKey=GdDF9nLZ6A7khhWEqUthw_HdpYyokmdC")
-//                        .error(R.drawable.pokeball)
-//                        .fit().centerCrop()
-//                        .into(binding!!.companyIcon)
 
                     iconView = findViewById(R.id.companyIcon)
                     Utils().fetchSVG(applicationContext, branding.logo_url + "?apiKey=GdDF9nLZ6A7khhWEqUthw_HdpYyokmdC", iconView)

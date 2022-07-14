@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="moss_green">#466d1d</color>
     <color name="dirty_white">#ECEAEA</color>
+    <color name="bitcoin_orange">#FF9900</color>
+    <color name="dolar_green">#278664</color>
 </resources>

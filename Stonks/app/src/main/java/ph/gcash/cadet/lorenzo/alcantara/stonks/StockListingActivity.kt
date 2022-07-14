@@ -15,9 +15,6 @@ class StockListingActivity : AppCompatActivity() {
     private lateinit var binding : ActivityStockListingBinding
     private lateinit var recyclerViewAdapter : StockListAdapter
 
-    private var layoutStockManager: RecyclerView.LayoutManager? = null
-    private var stockListAdapter : RecyclerView.Adapter<StockListAdapter.StockViewHolder>? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStockListingBinding.inflate(layoutInflater)

@@ -5,13 +5,11 @@ import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import ph.gcash.cadet.lorenzo.alcantara.stonks.R
-import ph.gcash.cadet.lorenzo.alcantara.stonks.StockListingActivity
 import ph.gcash.cadet.lorenzo.alcantara.stonks.StockProfileActivity
 import ph.gcash.cadet.lorenzo.alcantara.stonks.databinding.StockListBinding
-import ph.gcash.cadet.lorenzo.alcantara.stonks.model.StockListItem
+import ph.gcash.cadet.lorenzo.alcantara.stonks.model.CryptoStockListItem
 
 
 class StockListAdapter(private val context :Context): RecyclerView.Adapter<StockListAdapter.StockViewHolder>() {
@@ -51,31 +49,31 @@ class StockListAdapter(private val context :Context): RecyclerView.Adapter<Stock
     }
 
     //hardcoded due to API limitations
-    var stockListing = arrayListOf<StockListItem>(
-        StockListItem(R.drawable.ic_aapl, "AAPL", "Apple Inc."),
-        StockListItem(R.drawable.ic_msft,"MSFT", "Microsoft Corporation"),
-        StockListItem(R.drawable.ic_tsm, "TSM", "Taiwan Semiconductor Manufacturing Company Limited"),
-        StockListItem(R.drawable.ic_nvidia, "NVDA", "NVIDIA Corporation"),
-        StockListItem(R.drawable.ic_avgo, "AVGO", "Broadcom Inc."),
-        StockListItem(R.drawable.ic_oracle, "ORCL", "Oracle Corporation"),
-        StockListItem(R.drawable.ic_asml, "ASML", "ASML Holding N.V."),
-        StockListItem(R.drawable.ic_acn, "ACN", "Accenture plc"),
-        StockListItem(R.drawable.ic_adbe, "ADBE", "Adobe Inc."),
-        StockListItem(R.drawable.ic_csco, "CSCO", "Cisco Systems, Inc."),
-        StockListItem(R.drawable.ic_crm, "CRM", "Salesforce, Inc."),
-        StockListItem(R.drawable.ic_intl, "INTC", "Intel Corporation"),
-        StockListItem(R.drawable.ic_qcom, "QCOM", "QUALCOMM Incorporated"),
-        StockListItem(R.drawable.ic_txn, "TXN", "Texas Instruments Incorporated"),
-        StockListItem(R.drawable.ic_ibm, "IBM", "International Business Machines Corporation"),
-        StockListItem(R.drawable.ic_amd,"AMD", "Advanced Micro Devices, Inc."),
-        StockListItem(R.drawable.ic_intu, "INTU", "Intuit Inc."),
-        StockListItem(R.drawable.ic_sap, "SAP", "SAP SE"),
-        StockListItem(R.drawable.ic_sony, "SONY", "Sony Group Corporation"),
-        StockListItem(R.drawable.ic_now, "NOW", "ServiceNow, Inc."),
-        StockListItem(R.drawable.ic_info, "INFY", "InfoSys Limited"),
-        StockListItem(R.drawable.ic_amat, "AMAT", "Applied Materials, Inc."),
-        StockListItem(R.drawable.ic_adi,"ADI", "Analog Devices, Inc."),
-        StockListItem(R.drawable.ic_mu, "MU", "Micron Technology, Inc."),
-        StockListItem(R.drawable.ic_fisv, "FISV", "Fiserv Inc")
+    var stockListing = arrayListOf<CryptoStockListItem>(
+        CryptoStockListItem(R.drawable.ic_aapl, "AAPL", "Apple Inc."),
+        CryptoStockListItem(R.drawable.ic_msft,"MSFT", "Microsoft Corporation"),
+        CryptoStockListItem(R.drawable.ic_tsm, "TSM", "Taiwan Semiconductor Manufacturing Company Limited"),
+        CryptoStockListItem(R.drawable.ic_nvidia, "NVDA", "NVIDIA Corporation"),
+        CryptoStockListItem(R.drawable.ic_avgo, "AVGO", "Broadcom Inc."),
+        CryptoStockListItem(R.drawable.ic_oracle, "ORCL", "Oracle Corporation"),
+        CryptoStockListItem(R.drawable.ic_asml, "ASML", "ASML Holding N.V."),
+        CryptoStockListItem(R.drawable.ic_acn, "ACN", "Accenture plc"),
+        CryptoStockListItem(R.drawable.ic_adbe, "ADBE", "Adobe Inc."),
+        CryptoStockListItem(R.drawable.ic_csco, "CSCO", "Cisco Systems, Inc."),
+        CryptoStockListItem(R.drawable.ic_crm, "CRM", "Salesforce, Inc."),
+        CryptoStockListItem(R.drawable.ic_intl, "INTC", "Intel Corporation"),
+        CryptoStockListItem(R.drawable.ic_qcom, "QCOM", "QUALCOMM Incorporated"),
+        CryptoStockListItem(R.drawable.ic_txn, "TXN", "Texas Instruments Incorporated"),
+        CryptoStockListItem(R.drawable.ic_ibm, "IBM", "International Business Machines Corporation"),
+        CryptoStockListItem(R.drawable.ic_amd,"AMD", "Advanced Micro Devices, Inc."),
+        CryptoStockListItem(R.drawable.ic_intu, "INTU", "Intuit Inc."),
+        CryptoStockListItem(R.drawable.ic_sap, "SAP", "SAP SE"),
+        CryptoStockListItem(R.drawable.ic_sony, "SONY", "Sony Group Corporation"),
+        CryptoStockListItem(R.drawable.ic_now, "NOW", "ServiceNow, Inc."),
+        CryptoStockListItem(R.drawable.ic_info, "INFY", "InfoSys Limited"),
+        CryptoStockListItem(R.drawable.ic_amat, "AMAT", "Applied Materials, Inc."),
+        CryptoStockListItem(R.drawable.ic_adi,"ADI", "Analog Devices, Inc."),
+        CryptoStockListItem(R.drawable.ic_mu, "MU", "Micron Technology, Inc."),
+        CryptoStockListItem(R.drawable.ic_fisv, "FISV", "Fiserv Inc")
     )
 }

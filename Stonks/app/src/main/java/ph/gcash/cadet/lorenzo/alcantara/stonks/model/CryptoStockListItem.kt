@@ -1,6 +1,6 @@
 package ph.gcash.cadet.lorenzo.alcantara.stonks.model
 
-class StockListItem {
+class CryptoStockListItem {
 
     var image = 0
     var ticker = ""

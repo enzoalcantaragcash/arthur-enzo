@@ -58,7 +58,6 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<CoinMarketCapMapData>, t: Throwable) {
                 Log.e("API CALL", t.toString())
-                Log.d("API CALL", " SHET")
             }
         })
     }

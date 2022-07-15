@@ -38,7 +38,7 @@ class CryptoListActivity : AppCompatActivity() {
     private fun initListings() {
 
         //dito sa call function mo ilalagay kung pano ranking and ilan gusto mo idisplay.
-        val call : Call<CoinMarketCapMapData> = CoinMarketCapApiClient.getCryptoData.getMap("1ff15f96-407d-4623-99c2-f067430d757f", "cmc_rank", 25)
+        val call : Call<CoinMarketCapMapData> = CoinMarketCapApiClient.getCryptoData.getMap(getString(R.string.apiKey_coinmarketcap), "cmc_rank", 25)
 
         call.enqueue(object : Callback<CoinMarketCapMapData> {
 

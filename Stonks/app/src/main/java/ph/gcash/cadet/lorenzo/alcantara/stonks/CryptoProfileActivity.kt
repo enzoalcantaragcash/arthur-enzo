@@ -16,6 +16,7 @@ import ph.gcash.cadet.lorenzo.alcantara.stonks.databinding.ActivityCryptoProfile
 import ph.gcash.cadet.lorenzo.alcantara.stonks.model.coingeckochartdata.CoingeckoMarketDataResponse
 import ph.gcash.cadet.lorenzo.alcantara.stonks.model.coinmarketcapmetadata.MetadataDataInitialResponse
 import ph.gcash.cadet.lorenzo.alcantara.stonks.model.coinmarketcapmetadata.MetadataDataResponse
+import ph.gcash.cadet.lorenzo.alcantara.stonks.utils.Utils
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,7 +51,7 @@ class CryptoProfileActivity : AppCompatActivity() {
     private fun initMetadata(id: String) {
 
         //need muna ilagay id
-        val call : Call<MetadataDataInitialResponse> = CoinMarketCapApiClient.getCryptoData.getMetadata("1ff15f96-407d-4623-99c2-f067430d757f", id)
+        val call : Call<MetadataDataInitialResponse> = CoinMarketCapApiClient.getCryptoData.getMetadata(getString(R.string.apiKey_coinmarketcap), id)
 
         call.enqueue(object : Callback<MetadataDataInitialResponse> {
 
@@ -126,7 +127,7 @@ class CryptoProfileActivity : AppCompatActivity() {
 
                     var lineData = LineData(iLineDataSet)
                     lineChart.data = lineData
-                    lineChart.xAxis.valueFormatter = StockProfileActivity.DateTimeChartFormat()
+                    lineChart.xAxis.valueFormatter = Utils.DateTimeChartFormat()
                     lineChart.xAxis.setCenterAxisLabels(true)
                     lineChart.axisRight.isEnabled = false
                     lineChart.xAxis.granularity = 4F

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Stonks</string>
+    <string name="apiKey_coinmarketcap">1ff15f96-407d-4623-99c2-f067430d757f</string>
+    <string name="apiKey_alphavantage">GdDF9nLZ6A7khhWEqUthw_HdpYyokmdC</string>
 </resources>

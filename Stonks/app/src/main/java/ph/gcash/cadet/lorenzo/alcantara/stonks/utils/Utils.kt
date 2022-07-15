@@ -2,11 +2,14 @@ package ph.gcash.cadet.lorenzo.alcantara.stonks.utils
 
 import android.content.Context
 import android.widget.ImageView
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.pixplicity.sharp.Sharp
 import okhttp3.*
 import ph.gcash.cadet.lorenzo.alcantara.stonks.R
 import java.io.IOException
 import java.io.InputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Utils {
 
@@ -29,5 +32,18 @@ class Utils {
                 stream.close()
             }
         })
+    }
+
+    class DateTimeChartFormat : IndexAxisValueFormatter() {
+
+        override fun getFormattedValue(value: Float): String {
+
+            val dateInMillis = value.toLong()
+            val date = Calendar.getInstance().apply {
+                timeInMillis = dateInMillis
+            }.time
+
+            return SimpleDateFormat("MM-dd-yyyy", Locale.getDefault()).format(date)
+        }
     }
 }

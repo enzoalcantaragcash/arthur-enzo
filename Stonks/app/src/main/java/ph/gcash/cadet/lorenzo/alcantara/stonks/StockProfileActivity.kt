@@ -69,7 +69,7 @@ class StockProfileActivity : AppCompatActivity() {
 
     private fun initCompanyStockPrices(tickerCompany: String, startDate: String, endDate:String) {
         val call : Call<StockValueInitialResponse> = StocksPolygonIOApiClient.getStocksData.getCompanyStockData(tickerCompany, "1", "day", startDate,
-             endDate, "desc", "5000", "GdDF9nLZ6A7khhWEqUthw_HdpYyokmdC")
+             endDate, "desc", "5000", getString(R.string.apiKey_alphavantage))
 
         call.enqueue(object : Callback<StockValueInitialResponse> {
 
@@ -110,7 +110,7 @@ class StockProfileActivity : AppCompatActivity() {
 
                     var lineData = LineData(iLineDataSet)
                     lineChart.data = lineData
-                    lineChart.xAxis.valueFormatter = DateTimeChartFormat()
+                    lineChart.xAxis.valueFormatter = Utils.DateTimeChartFormat()
                     lineChart.xAxis.setCenterAxisLabels(true)
                     lineChart.axisRight.isEnabled = false
                     lineChart.xAxis.granularity = 4F
@@ -128,7 +128,7 @@ class StockProfileActivity : AppCompatActivity() {
 
     private fun initCompanyProfile(tickerCompany : String) {
 
-        val call : Call<PolygonCompanyInitialResponse> = StocksPolygonIOApiClient.getStocksData.getCompanyProfile(tickerCompany, "GdDF9nLZ6A7khhWEqUthw_HdpYyokmdC")
+        val call : Call<PolygonCompanyInitialResponse> = StocksPolygonIOApiClient.getStocksData.getCompanyProfile(tickerCompany, getString(R.string.apiKey_alphavantage))
 
         call.enqueue(object : Callback<PolygonCompanyInitialResponse> {
 
@@ -168,16 +168,5 @@ class StockProfileActivity : AppCompatActivity() {
         })
     }
 
-    class DateTimeChartFormat : IndexAxisValueFormatter() {
 
-        override fun getFormattedValue(value: Float): String {
-
-            val dateInMillis = value.toLong()
-            val date = Calendar.getInstance().apply {
-                timeInMillis = dateInMillis
-            }.time
-
-            return SimpleDateFormat("MM-dd-yyyy", Locale.getDefault()).format(date)
-        }
-    }
 }

@@ -16,6 +16,7 @@ import ph.gcash.cadet.lorenzo.alcantara.stonks.databinding.ActivityCryptoProfile
 import ph.gcash.cadet.lorenzo.alcantara.stonks.model.coingeckochartdata.CoingeckoMarketDataResponse
 import ph.gcash.cadet.lorenzo.alcantara.stonks.model.coinmarketcapmetadata.MetadataDataInitialResponse
 import ph.gcash.cadet.lorenzo.alcantara.stonks.model.coinmarketcapmetadata.MetadataDataResponse
+import ph.gcash.cadet.lorenzo.alcantara.stonks.model.coinmarketcapmetadata.MetadataDataURLResponse
 import ph.gcash.cadet.lorenzo.alcantara.stonks.utils.Utils
 import retrofit2.Call
 import retrofit2.Callback
@@ -67,14 +68,20 @@ class CryptoProfileActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     var response: MetadataDataInitialResponse = response!!.body()!!
                     var coinMetadata : MetadataDataResponse? = response.data?.get(id)
+                    var websites : MetadataDataURLResponse = coinMetadata!!.urls
 
                     Log.d("API CALL", coinMetadata.toString())
 
                     binding!!.CryptoCompanyTicker.text = coinMetadata?.symbol
                     binding!!.CryptoCompanyName.text = coinMetadata?.name
                     binding!!.CryptoCompanyDescriptionEdit.text = coinMetadata?.description
-                    binding!!.CryptoCompanyMarketCapEdit.text = coinMetadata?.self_reported_market_cap
-                    binding!!.CryptoCompanyHomePageEdit.text = coinMetadata?.urls!!.website.toString()
+                    if(coinMetadata.self_reported_market_cap!= null) {
+                        binding!!.CryptoCompanyMarketCapEdit.text =
+                            coinMetadata.self_reported_market_cap
+                    }
+
+
+                    binding!!.CryptoCompanyHomePageEdit.text = websites.website.toString().replace("[","" ).replace("]","")
 
                     val picasso = Picasso.get()
                     picasso

@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
     private fun initMetadata(id: String) {
 
         //need muna ilagay id
-        val call : Call<MetadataDataInitialResponse> = CoinMarketCapApiClient.getCryptoData.getMetadata("1ff15f96-407d-4623-99c2-f067430d757f", id.toInt())
+        val call : Call<MetadataDataInitialResponse> = CoinMarketCapApiClient.getCryptoData.getMetadata("1ff15f96-407d-4623-99c2-f067430d757f", id)
 
         call.enqueue(object : Callback<MetadataDataInitialResponse> {
 
@@ -81,15 +81,15 @@ class MainActivity : AppCompatActivity() {
                 call: Call<MetadataDataInitialResponse>,
                 response: Response<MetadataDataInitialResponse>
             ) {
-                if (response.isSuccessful) {
-                    var response: MetadataDataInitialResponse = response!!.body()!!
-                    var coinMetadata : MetadataDataResponse? = response.data?.get(id)
-
-                    Log.d("API CALL", coinMetadata.toString())
-                }
-                else {
-                    Log.d("API CALL", "baket")
-                }
+//                if (response.isSuccessful) {
+//                    var response: MetadataDataInitialResponse = response!!.body()!!
+//                    var coinMetadata : MetadataDataResponse? = response.data?.get(id)
+//
+//                    Log.d("API CALL", coinMetadata.toString())
+//                }
+//                else {
+//                    Log.d("API CALL", "baket")
+//                }
             }
 
         })

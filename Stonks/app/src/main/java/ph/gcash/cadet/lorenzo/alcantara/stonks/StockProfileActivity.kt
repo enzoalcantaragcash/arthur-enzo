@@ -90,6 +90,7 @@ class StockProfileActivity : AppCompatActivity() {
                     var lineCharDataSet : ArrayList<Entry> = ArrayList()
                     var count = dateInMilis.toFloat()
                     Log.d("API DEBUG", response.body()!!.results.size.toString())
+
                     for (data in response.body()!!.results) {
                         lineCharDataSet.add(Entry(count, data.closePrice.toFloat()))
                         count -= 86400000

@@ -49,7 +49,7 @@ object CoinMarketCapApiClient {
         @GET("v2/cryptocurrency/info")
         fun getMetadata (
             @Query("CMC_PRO_API_KEY") apiKey: String,
-            @Query("id") id: Int
+            @Query("id") id: String
         ): Call<MetadataDataInitialResponse>
     }
 }

@@ -25,10 +25,7 @@ class CryptoListActivity : AppCompatActivity() {
         binding = ActivityCryptoListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         initListings()
-
 
         recyclerViewAdapter = CryptoListAdapter(applicationContext)
         binding.cryptoRecyclerView.adapter = recyclerViewAdapter

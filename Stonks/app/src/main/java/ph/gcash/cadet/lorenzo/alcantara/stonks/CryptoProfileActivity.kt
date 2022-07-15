@@ -16,13 +16,16 @@ class CryptoProfileActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCryptoProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        var extras = intent.extras
+        var id = extras!!.getString("id")
         super.onCreate(savedInstanceState)
-
         binding = ActivityCryptoProfileBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
 
-        initMetadata("1")
+        if (id != null) {
+            initMetadata(id)
+        }
 
 
 
@@ -33,7 +36,7 @@ class CryptoProfileActivity : AppCompatActivity() {
     private fun initMetadata(id: String) {
 
         //need muna ilagay id
-        val call : Call<MetadataDataInitialResponse> = CoinMarketCapApiClient.getCryptoData.getMetadata("1ff15f96-407d-4623-99c2-f067430d757f", id.toInt())
+        val call : Call<MetadataDataInitialResponse> = CoinMarketCapApiClient.getCryptoData.getMetadata("1ff15f96-407d-4623-99c2-f067430d757f", id)
 
         call.enqueue(object : Callback<MetadataDataInitialResponse> {
 

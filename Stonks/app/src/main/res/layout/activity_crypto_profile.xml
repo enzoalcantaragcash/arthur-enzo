@@ -74,7 +74,7 @@
                 android:id="@+id/CryptoCurrentPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CURRENT PRICE"
+                android:text="LATEST CLOSED PRICE"
                 android:textStyle="bold" />
 
             <TextView

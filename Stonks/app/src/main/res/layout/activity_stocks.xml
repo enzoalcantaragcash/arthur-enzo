@@ -25,7 +25,7 @@
         android:layout_height="47dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="4dp"
-        android:text="Address here"
+        android:text=""
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/companyIcon"
         app:layout_constraintTop_toBottomOf="@+id/companyName" />
@@ -39,7 +39,7 @@
         android:textSize="17sp"
         android:breakStrategy="balanced"
         app:autoSizeTextType="uniform"
-        android:text="Company Here"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/companyIcon"
         app:layout_constraintTop_toBottomOf="@+id/companyTicker" />
 
@@ -49,7 +49,7 @@
         android:layout_height="44dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="36dp"
-        android:text="Ticker Here"
+        android:text=""
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/companyIcon"
@@ -80,9 +80,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/stockCurrentPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CURRENT PRICE"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/stockCurrentPriceEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:text="" />
+            <TextView
                 android:id="@+id/CompanySIC"
+                android:paddingTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="STANDARD INDUSTRY CLASSIFICATION"
@@ -93,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
-                android:text="SIC Here" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/companyDescription"
@@ -108,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
-                android:text="insertcompanydesc here" />
+                android:text=" " />
 
             <TextView
                 android:id="@+id/companyTotalEmploy"
@@ -123,7 +136,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
-                android:text="insertemployhere" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/companyHomePage"
@@ -138,7 +151,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
-                android:text="inserthomepagehere" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/companyMarketCap"
@@ -153,7 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="30dp"
-                android:text="insertmarketcaphere" />
+                android:text="" />
 
 
         </LinearLayout>

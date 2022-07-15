@@ -1,6 +1,7 @@
 package ph.gcash.cadet.lorenzo.alcantara.stonks.model.alphavantagecompanyprofile.chartvalues
 
 import com.google.gson.annotations.SerializedName
+import java.math.BigInteger
 
 class StockValueResponse {
 
@@ -12,6 +13,9 @@ class StockValueResponse {
 
     @SerializedName("l")
     var lowestPrice : Double= 0.0
+
+    @SerializedName("t")
+    var time : BigInteger = BigInteger.valueOf(0)
 
     override fun toString(): String {
         return "StockValueResponse(closePrice=$closePrice, highestPrice=$highestPrice, lowestPrice=$lowestPrice)"

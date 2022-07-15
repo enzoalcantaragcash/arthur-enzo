@@ -88,14 +88,12 @@ class StockProfileActivity : AppCompatActivity() {
 
                     var dateInMilis = DateTime.parse(endDate, DateTimeFormat.forPattern("yyyy-MM-dd")).millis
                     var lineCharDataSet : ArrayList<Entry> = ArrayList()
-                    var count = dateInMilis.toFloat()
                     Log.d("API DEBUG", response.body()!!.results.size.toString())
 
                     for (data in response.body()!!.results) {
-                        lineCharDataSet.add(Entry(count, data.closePrice.toFloat()))
-                        count -= 86400000
+                        lineCharDataSet.add(Entry(data.time.toFloat(), data.closePrice.toFloat()))
                     }
-
+                    binding!!.stockCurrentPriceEdit.text = lineCharDataSet[0].y.toString()
                     lineCharDataSet.reverse()
                     var lineDataSet = LineDataSet(lineCharDataSet, "data set")
                     lineDataSet.apply {

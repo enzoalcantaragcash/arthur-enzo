@@ -14,9 +14,9 @@ class LandingActivity : AppCompatActivity() {
         binding = ActivityLandingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        binding!!.cryptoButton.setOnClickListener() {
-//            startActivity(Intent(this, StockListingActivity::class.java))
-//        }
+        binding!!.cryptoButton.setOnClickListener() {
+            startActivity(Intent(this, CryptoListActivity::class.java))
+        }
 
         binding!!.stocksButton.setOnClickListener() {
             startActivity(Intent(this, StockListingActivity::class.java))
